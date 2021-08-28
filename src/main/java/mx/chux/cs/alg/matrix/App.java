@@ -1,6 +1,10 @@
 package mx.chux.cs.alg.matrix;
 
-public class App{
+import java.util.logging.Logger;
+
+public class App {
+    
+    private static final Logger LOGGER = Logger.getLogger(App.class.getName());
     
     public static void main( String[] args ) {
         
@@ -12,7 +16,9 @@ public class App{
                 { 21, 22, 23, 24, 25 }
             };
         
-        Matrix<Integer> matrix = new Matrix<Integer>(data);
+        LOGGER.info("Matrix rotations");
+        
+        Matrix<Integer> matrix = new Matrix<>(data);
         
         matrix.print();
         

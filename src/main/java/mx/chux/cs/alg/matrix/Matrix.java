@@ -24,15 +24,25 @@ public class Matrix<E> implements Supplier<E[][]> {
             for( int j = i ; j < k ; j++ ) {
                 
                 // save top-left
+                // moves only along X axis ( towards right ) as j increments
+                // index i keeps the row fixed to top
                 final E temp = this.matrix[i][j];
                 
                 // top-left = bottom-left
+                // moves only along Y axis ( towards top ) as j increments
+                // index i modulates motion in Y axis
+                // index i keeps the column fixed to first
                 this.matrix[i][j] = this.matrix[k-j+i][i];
                 
                 // bottom-left = bottom-right
+                // moves only along X axis ( towards left ) as j increments
+                // index i modulates motion in X axis
+                // index k keeps the row fixed to bottom
                 this.matrix[k-j+i][i] = this.matrix[k][k-j+i];
                 
                 // bottom-right = top-right
+                // moves only along Y axis ( towards bottom ) as j increments
+                // index k keeps the column fixed to last
                 this.matrix[k][k-j+i] = this.matrix[j][k];
                 
                 // top-right = top-left
